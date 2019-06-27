@@ -25,7 +25,7 @@ class PipInstaller(BaseInstaller):
         self._env = env
         self._io = io
 
-    def install(self, package, update=False):
+    def install(self, package, update=False, target=None):
         if package.source_type == "directory":
             self.install_directory(package)
 
@@ -66,6 +66,9 @@ class PipInstaller(BaseInstaller):
 
         if update:
             args.append("-U")
+
+        if target:
+            args += ["-t", target]
 
         if package.hashes and not package.source_type:
             # Format as a requirements.txt

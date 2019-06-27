@@ -124,10 +124,17 @@ poetry install --extras "mysql pgsql"
 poetry install -E mysql -E pgsql
 ```
 
+It is possible to mimic the `-t` option supported by pip by passing the `--target` option.
+
+```bash
+poetry install --target .
+```
+
 ### Options
 
 * `--no-dev`: Do not install dev dependencies.
 * `--extras (-E)`: Features to install (multiple values allowed).
+* `--target`: Place the packages poetry installs in the specified directory
 
 ## update
 

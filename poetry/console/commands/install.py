@@ -13,6 +13,7 @@ class InstallCommand(EnvCommand):
                       (implicitly enables --verbose). }
         { --E|extras=* : Extra sets of dependencies to install. }
         { --develop=* : Install given packages in development mode. }
+        { --target=* : Install managed packages in the specified target directory. }
     """
 
     help = """The <info>install</info> command reads the <comment>poetry.lock</> file from
@@ -51,6 +52,7 @@ exist it will look for <comment>pyproject.toml</> and do the same.
         installer.develop(self.option("develop"))
         installer.dry_run(self.option("dry-run"))
         installer.verbose(self.option("verbose"))
+        installer.target(self.option("target"))
 
         return_code = installer.run()
 
